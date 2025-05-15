@@ -50,6 +50,11 @@ class Auth extends ResourceController
                 'message' => 'Login bem-sucedido',
                 'token' => $token,
                 'token_created' => true,
+                'user' => [
+                    'id'    => $user['id'],
+                    'email' => $user['email'],
+                    'role'  => $user['role'],
+                ],
             ]);
         } catch (\Throwable $e) {
             log_message('error', 'JWT encode failed: ' . $e->getMessage());
